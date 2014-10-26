@@ -38,7 +38,13 @@ All files did not include header rows.
 ### Extracting the required columns
 
 The requirement was to extract only the measurements on the mean and standard deviation for each measurement.
-From the features_info.txt file in the above mentioned zip-file, documents as mean and standard deviation those whose names contain "std()" or "mean()". There are columns containing "meanFreq()", but according to the explanation this is the "weighted average of the frequency components to obtain a mean frequency". So it is not a mean value, but can be used to calculate a mean value. Therefore all those columns are excluded.
+
+From the features_info.txt file in the above mentioned zip-file, documents as mean and standard deviation those whose names contain "std()" or "mean()". 
+
+There are columns containing "meanFreq()", but according to the explanation this is the "weighted average of the frequency components to obtain a mean frequency". So it is not a mean value, but can be used to calculate a mean value. Therefore all those columns are excluded.
+
+Also columns which represent an euclidean norm of mean or standdard deviation values (for x,y and z directions) have been excluded, because a norm is not mean or standard deviation. This affects columns containing the string 'Mag'.
+
 The file features.txt containing all column names lists also names like angle(\*, \*Mean) or angle(\*Mean, \*). Those columns are also excluded because features_info.txt explains for the angle() columns, that they represent an angle between two vectors, but an angle is not a mean value, if one of the vectors represents a mean.
 
 The column names for the feature data is provided in a separate file features.txt. That file is loaded. The required indices of the columns according to the above description are extracted with the grep command.
@@ -66,11 +72,12 @@ The conversion is done in a sequence of nested sub() and gsub() function calls a
 
 ### Creation of tidy data set containing the average of each variable for each activity and each subject
 
-The tidy data set tidy\_wide was created by simply chaining the dplyr function group_by, summarize_each (using mean), and arrange.
+The tidy data set tidy\_wide was created by simply chaining the dplyr function group\_by, summarize_each (using mean), and arrange.
 
+The data set is written out in a white space delimited text file named tidy\_wide.txt.
 
 ### Reading the uploaded text file
 
 The text file can be read with
 
-df<- read.table("tidy_narrow.txt", header=TRUE)
+my\_df<- read.table("tidy\_wide.txt", header=TRUE)

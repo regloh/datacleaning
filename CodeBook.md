@@ -17,25 +17,34 @@ collected by:
 
 which can be downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
 
-The trainings and test data set for the features were combinde and used as basis for this data set, where only column representing a mean or standdard deviation value where selected. The features values where labelled with the activity and subject values included in the zip file (see activity and subject column below).
+The trainings and test data set for the features were combined and used as basis for this data set, where only column representing a mean or standard deviation value where selected. Activity and subject columns were added in front of the feature columns; their values were included in the zip file.
 
 The feature values were grouped by activity and subject and for every combination the mean value for every feature variable has been calculated.
 
 The variable names from the original data set have been converted so that all abbreviations have been expanded, all characters have been translated to lower case and all special characters have been removed.
 
-So all variable names starting with the letter 't' (for time) have been expanded to 'time', variable names starting wiht letter f (for frequency) have been expanded with frequency,
-the abbreviation 'Mag' denoting an euclidean norm has been expanded to magnitude, 
+So all variable names starting with the letter 't' (for time) have been expanded to 'time', variable names starting with letter f (for frequency) have been expanded with frequency,
+the abbreviation 'Mag' denoting an Euclidean norm has been expanded to magnitude, 
 'Gyro' to 'gyroscope', 'Acc' to 'accelerometer', 'std' to 'standarddeviation'.
 
 The triaxial indicators (-X, -Y, -Z) at the end of the names just became (x, y, and z).
 
+The following description is based on the README.txt and features_info.txt files included in the original zip file.
+
+Description of some variables are given for a group of variables, e.g. when the same description fits to a  set of variables, which e.g. are only different in the spatial axis they are referring to.
+
+According to the original README.txt file
+
+    "Features are normalized and bounded within [-1,1]."
+    
+Because the values in this data set is calculate as the mean value of these original feature values, also all feature values in this data set are bounded within [-1,1].
 
 
 ## Grouping variables
 
 1. activity
 
-    one of the following activities:
+    One of the following activities:
   
         WALKING
         WALKING_UPSTAIRS
@@ -46,16 +55,28 @@ The triaxial indicators (-X, -Y, -Z) at the end of the names just became (x, y, 
 
 2. subject
 
-    a number in the range of 1..30 identifying the subject participating in the trial
+    A number in the range of 1..30 identifying the subject participating in the trial
     
 
-## Some General remarks to the following variables
 
-## measurements
 
-The following variables are all representing a mean value for the grouping of activity and subject.
+## Feature variables 
 
-The measurements 
+The following variables are all representing a *mean* value for the grouping of activity and subject, but the labels do *not* a *mean* part, to indicate this fact. If labels contain a mean part, then the underlying column label from the original data set did already contain it.
+
+In the following description it is not explicitly mentioned any more that the variables contain mean values. If a description states "Mean value of ...", then the original value was already a mean value, and a new mean value (the described value) has been calculated out of it.
+
+Description of some variables are given for a group of variables, e.g. when the same description fits to a set of variables, which e.g. are only different in the spatial axis they are referring to.
+
+If it is referred to "original values", then the values in the original data set from the zip file is meant.
+
+According to the original README.txt file
+
+    "Features are normalized and bounded within [-1,1]."
+    
+Because the values in this data set is calculated as the mean value of these original feature values, also all feature values in this data set are bounded within [-1,1].
+
+
     
 3. timebodyaccelaratormeanx
 
@@ -63,11 +84,21 @@ The measurements
 
 5. timebodyaccelaratormeanz
 
+    Description for 3. - 5.:
+    
+    Mean value of time domain signals for triaxial (in x,z, and z directions) body acceleration from the 
+    accelerometer (total acceleration).
+
 6. timebodyaccelaratorstandarddeviationx
 
 7. timebodyaccelaratorstandarddeviationy
 
 8. timebodyaccelaratorstandarddeviationz
+
+    Description for 6. - 8.:
+    
+    Standard deviation of time domain signals for triaxial (in x,z, and z directions) body 
+    acceleration from the accelerometer (total acceleration).
 
 9. timegravityaccelaratormeanx
 
@@ -75,12 +106,21 @@ The measurements
 
 11. timegravityaccelaratormeanz
 
+    Description for 9. - 11.:
+    
+    Mean value of time domain signals for triaxial (in x,z, and z directions) gravity acceleration from the 
+    accelerometer (total acceleration).
+
 12. timegravityaccelaratorstandarddeviationx
 
 13. timegravityaccelaratorstandarddeviationy
 
 14. timegravityaccelaratorstandarddeviationz
 
+    Description for 12. - 14.:
+    
+    Standard deviation of time domain signals for triaxial (in x,z, and z directions) gravity acceleration
+    from the accelerometer (total acceleration).
 
 
 15. timebodyaccelaratorjerkmeanx
@@ -89,11 +129,22 @@ The measurements
  
 17. timebodyaccelaratorjerkmeanz
 
+    Description for 15. - 17.:
+    
+    Mean value of time domain triaxial Jerk signals derived from the corresponding original values for 
+    the variables described in 3. - 5.
+
+
 18. timebodyaccelaratorjerkstandarddeviationx
 
 19. timebodyaccelaratorjerkstandarddeviationy
 
 20. timebodyaccelaratorjerkstandarddeviationz
+
+    Description for 18. - 20.:
+    
+    Standard deviation of time domain triaxial Jerk signals derived from the corresponding original values for 
+    the variables described in 6. - 8.
 
 
 
@@ -103,12 +154,21 @@ The measurements
 
 23. timebodygyroscopemeanz
 
+    Description for 21. - 23.:
+    
+    Mean value of time domain signals for triaxial (in x,z, and z directions) angular velocity from the 
+    gyroscope.
+
 24. timebodygyroscopestandarddeviationx
 
 25. timebodygyroscopestandarddeviationy
 
 26. timebodygyroscopestandarddeviationz
 
+    Description for 24. - 26.:
+    
+    Standard deviation of time domain signals for triaxial (in x,z, and z directions) angular velocity from the 
+    gyroscope.
 
 27. timebodygyroscopejerkmeanx
 
@@ -116,91 +176,93 @@ The measurements
 
 29. timebodygyroscopejerkmeanz
 
+    Description for 27. - 29.:
+    
+    Mean value of time domain triaxial Jerk signals derived from the corresponding original values for 
+    the variables described in 21. - 23.
+
+
 30. timebodygyroscopejerkstandarddeviationx
 
 31. timebodygyroscopejerkstandarddeviationy
 
 32. timebodygyroscopejerkstandarddeviationz
 
-
-33. timebodyaccelaratormagnitudemean
-
-34. timebodyaccelaratormagnitudestandarddeviation
-
-
-35. timegravityaccelaratormagnitudemean
-
-36. timegravityaccelaratormagnitudestandarddeviation
+    Description for 30. - 32.:
+    
+    Mean value of time domain triaxial Jerk signals derived from the corresponding original values for 
+    the variables described in 24. - 26.
 
 
-37. timebodyaccelaratorjerkmagnitudemean
+33. frequencybodyaccelaratormeanx
 
-38. timebodyaccelaratorjerkmagnitudestandarddeviation
+34. frequencybodyaccelaratormeany
 
+35. frequencybodyaccelaratormeanz
 
-39. timebodygyroscopemagnitudemean
-
-40. timebodygyroscopemagnitudestandarddeviation
-
-
-41. timebodygyroscopejerkmagnitudemean
-
-42. timebodygyroscopejerkmagnitudestandarddeviation
+    Description for 33. - 35.:
+    
+    Mean value of frequency domain signals for triaxial (in x,z, and z directions) body 
+    acceleration from the accelerometer (total acceleration).
 
 
-43. frequencybodyaccelaratormeanx
+36. frequencybodyaccelaratorstandarddeviationx
 
-44. frequencybodyaccelaratormeany
+37. frequencybodyaccelaratorstandarddeviationy
 
-45. frequencybodyaccelaratormeanz
+38. frequencybodyaccelaratorstandarddeviationz
 
-46. frequencybodyaccelaratorstandarddeviationx
-
-47. frequencybodyaccelaratorstandarddeviationy
-
-48. frequencybodyaccelaratorstandarddeviationz
-
-
-49. frequencybodyaccelaratorjerkmeanx
-
-50. frequencybodyaccelaratorjerkmeany
-
-51. frequencybodyaccelaratorjerkmeanz
-
-52. frequencybodyaccelaratorjerkstandarddeviationx
-
-53. frequencybodyaccelaratorjerkstandarddeviationy
-
-54. frequencybodyaccelaratorjerkstandarddeviationz
+    Description for 36. - 38.:
+    
+    Standard deviation of frequency domain signals for triaxial (in x,z, and z directions)
+    body acceleration from the accelerometer (total acceleration).
 
 
-55. frequencybodygyroscopemeanx
+39. frequencybodyaccelaratorjerkmeanx
 
-56. frequencybodygyroscopemeany
+40. frequencybodyaccelaratorjerkmeany
 
-57. frequencybodygyroscopemeanz
+41. frequencybodyaccelaratorjerkmeanz
 
-58. frequencybodygyroscopestandarddeviationx
-
-59. frequencybodygyroscopestandarddeviationy
-
-60. frequencybodygyroscopestandarddeviationz
-
-
-61. frequencybodyaccelaratormagnitudemean
-
-62. frequencybodyaccelaratormagnitudestandarddeviation
+    Description for 39. - 41.:
+    
+    Mean value of frequency domain triaxial Jerk signals derived from the corresponding 
+    original values for the variables described in 33. - 35.
 
 
-63. frequencybodybodyaccelaratorjerkmagnitudemean
+42. frequencybodyaccelaratorjerkstandarddeviationx
 
-64. frequencybodybodyaccelaratorjerkmagnitudestandarddeviation
+43. frequencybodyaccelaratorjerkstandarddeviationy
+
+44. frequencybodyaccelaratorjerkstandarddeviationz
+
+    Description for 42. - 44.:
+    
+    Standard deviation of frequency domain triaxial Jerk signals derived from the
+    corresponding original values for the variables described in 36. - 38.
 
 
-65. frequencybodybodygyroscopemagnitudemean
+45. frequencybodygyroscopemeanx
 
-66. frequencybodybodygyroscopemagnitudestandarddeviation
+46. frequencybodygyroscopemeany
 
-67. frequencybodybodygyroscopejerkmagnitudemean
+47. frequencybodygyroscopemeanz
 
-68. frequencybodybodygyroscopejerkmagnitudestandarddeviation
+    Description for 45. - 47.:
+    
+    Mean value of frequency domain signals for triaxial (in x,z, and z directions) angular 
+    velocity from the gyroscope.
+
+
+48. frequencybodygyroscopestandarddeviationx
+
+49. frequencybodygyroscopestandarddeviationy
+
+50. frequencybodygyroscopestandarddeviationz
+
+    Description for 48. - 50.:
+    
+    Standard deviation of frequency domain signals for triaxial (in x,z, and z directions) angular 
+    velocity from the gyroscope.
+
+
