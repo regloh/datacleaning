@@ -74,6 +74,8 @@ The conversion is done in a sequence of nested sub() and gsub() function calls a
 
 The tidy data set tidy\_wide was created by simply chaining the dplyr function group\_by, summarize_each (using mean), and arrange.
 
+One could think, that the x,y and z suffixes for all variable names are actual values and could be stored e.g. in a separate column 'axis'. But I think that the accelerations and angular velocities are entities which are described in the 3 spatial directions and have to be treated as a group of observations, which should not be separated.
+
 The data set is written out in a white space delimited text file named tidy\_wide.txt.
 
 ### Reading the uploaded text file
